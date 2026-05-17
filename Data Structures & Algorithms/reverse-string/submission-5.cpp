@@ -1,0 +1,75 @@
+// Array
+//TC: O(n)
+//SC: O(n)
+// class Solution {
+// public:
+//     void reverseString(vector<char>& s) {
+//            string temp;
+//         for(int i=s.size()-1; i>=0; i--){
+//             temp.push_back(s[i]);
+//         }
+//         for(int i=0; i<s.size(); i++)
+//         {
+//             s[i]=temp[i];
+//         }
+//     }
+// };
+
+//Recursion
+//TC: O(n)
+//SC: O(n) for rec stack
+// class Solution {
+// public:
+//     void reverseString(vector<char>& s) {
+//          reverse(s,0,s.size()-1);
+//     }
+
+//     private:
+//     void reverse(vector<char>& s,int l, int r){
+//         if(l<r){
+//             reverse(s,l+1,r-1);
+//             swap(s[l],s[r]);
+//         }
+//     }
+// };
+
+//Stack
+//TC: O(n)
+//SC: O(n)
+// class Solution {
+// public:
+//     void reverseString(vector<char>& s) {
+//          stack<char> stack;
+//          for(char c:s){
+//             stack.push(c);
+//          }
+//          int i=0;
+//          while(!stack.empty()){
+//             s[i++]=stack.top();
+//             stack.pop();
+//          }
+//     }
+// };
+
+// Built In
+//TC:O(n)
+//SC: O(1)
+// class Solution {
+// public:
+//     void reverseString(vector<char>& s) {
+//     reverse(s.begin(),s.end());
+//     }
+// };
+
+// Two Ptr
+//TC: O(n)
+//SC: O(1)
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+    int l=0, r=s.size()-1;
+    while(l<r){
+        swap(s[l++],s[r--]);
+    }
+    }
+};
